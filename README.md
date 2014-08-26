@@ -129,12 +129,7 @@ buildout -c development.cfg
 Test images
 -----------
 
-Copy the test images into your image root:
-
-```bash 
-su - bodl-iip-srv
-cp -R /home/bodl-iip-srv/sites/bodl-iip-srv/src/loris/tests/img/* /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
-```
+Copy test images into your image root ```/home/bodl-iips-srv/sites/bodl-iip-srv/var/images/```
 
 Start Apache
 ------------
