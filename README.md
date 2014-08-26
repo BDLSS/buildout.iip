@@ -1,5 +1,7 @@
-Installation
-============
+Installation (Ubuntu 12.04.4 LTS)
+=================================
+
+IIP is not yet compatible with Ubuntu 14.
 
 Create user "bodl-iip-svc"
 ------------------
@@ -31,17 +33,6 @@ sudo apt-get install git
 git config --global user.email "my@address.com"
 git config --global user.name "name in quotes"
 ```
-Install and configure Git (RHEL>=6)
------------------------------------
-```bash
-su
-yum install git
-exit
-```
-```bash
-git config --global user.email "my@address.com"
-git config --global user.name "name in quotes"
-```
 
 Checkout the buildout
 ---------------------
@@ -58,15 +49,6 @@ Setup server (Debian/Ubuntu)
 su - <sudo user>
 sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements)
 su - bodl-iip-srv
-```
-Setup server (RHEL>=6)
-----------------------------
-
-```bash
-su - <sudo user>
-sudo cp /home/bodl-iip-srv/sites/bodl-iip-srv/redhat_requirements ~
-sudo yum install $(cat redhat_requirements)
-exit
 ```
 
 Install Python
