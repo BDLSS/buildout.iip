@@ -1,0 +1,9 @@
+libfcgi0ldbl 
+libjpeg8 
+libtiff4 
+zlib1g 
+libstdc++6 
+libmemcached6
+apache2 
+libapache2-mod-fastcgi
+memcached
