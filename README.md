@@ -40,7 +40,7 @@ Checkout the buildout
 su - bodl-iip-srv
 mkdir -p ~/sites/bodl-iip-srv
 cd ~/sites/bodl-iip-srv
-git clone gitlab@source.bodleian.ox.ac.uk:loris/buildout.iip.git ./
+git clone gitlab@source.bodleian.ox.ac.uk:calvin.butcher/buildout.iip.git ./
 ```
 Setup server (Debian/Ubuntu)
 ----------------------------
