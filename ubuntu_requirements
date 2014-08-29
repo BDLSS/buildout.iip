@@ -7,6 +7,8 @@ make
 wget
 openssl
 libssl-dev
+autoconf
+libtool
 libfcgi0ldbl 
 libjpeg8 
 libtiff4 
