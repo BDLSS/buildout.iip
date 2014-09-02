@@ -111,8 +111,8 @@ Install IIP server
 ------------------
 
 ```bash
-cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/
 su - <sudo user>
+cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/
 sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb
 su - bodl-iip-srv
 ```
