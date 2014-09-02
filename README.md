@@ -128,7 +128,12 @@ mkdir -p /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
 
 Copy your ```.tif``` and ```.jp2``` images into this directory. 
 
-e.g. ```http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif```
+e.g. 
+
+```bash
+cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
+wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif
+```
 
 Amend MooViewer image path
 --------------------------
