@@ -167,7 +167,8 @@ The IIP image server is located at (You should receive a welcome screen at this 
 
 http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
 
-If there is something wrong, check the logs at ```/home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/logs/error.log
+If there is something wrong, check the logs at ```/home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/logs/error.log```
+
 Reboot scripts
 --------------
 
