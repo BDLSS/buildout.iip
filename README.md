@@ -145,7 +145,7 @@ vi /home/bodl-iip-srv/sites/bodl-iip-srv/src/www/index.html
 Amend the parameter as follows:
 
 ```bash
-var image = /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/var/images/<image name>
+var image = /home/bodl-iip-srv/sites/bodl-iip-srv/var/images/<image name>
 ```
 
 e.g.
