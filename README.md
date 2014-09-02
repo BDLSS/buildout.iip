@@ -112,7 +112,7 @@ Install IIP server
 
 ```bash
 su - <sudo user>
-cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/
+cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/build
 sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb
 sudo cp /usr/lib/cgi-bin/iipsrv.fcgi /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/fcgi-bin/iipsrv.fcgi
 sudo chown bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/fcgi-bin/iipsrv.fcgi
