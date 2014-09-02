@@ -95,25 +95,6 @@ internalIP = <your server internal IP address>
 externalIP = <your server external IP address>
 ```
 
-Upload Kakadu source to server for compilation
-----------------------------------------------
-
-With no top layer directory (this buildout is designed for Kakadu versions 6.4 to 7.4).
-
-On your loris server:
-
-```bash
-mkdir ~/Downloads/kakadu
-```
-
-From wherever your source files reside:
-
-```bash
-scp -r <kakadu source location>/* bodl-iip-srv@<your loris server>:/home/bodl-iip-srv/Downloads/kakadu
-```
-
-Buildout will compile the source and distribute the libraries and applications required (namely the shared object library and kdu_expand).
-
 Create a virtualenv and run the buildout
 ----------------------------------------
 ```bash
@@ -126,10 +107,45 @@ buildout init
 buildout -c development.cfg
 ```
 
+Install IIP server
+------------------
+
+```bash
+cd /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/
+su - <sudo user>
+sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb
+su - bodl-iip-srv
+```
+
 Test images
 -----------
 
-Copy test images into your image root ```/home/bodl-iips-srv/sites/bodl-iip-srv/var/images/```
+```bash
+mkdir -p /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
+```
+
+Copy your ```.tif``` and ```.jp2``` images into this directory. 
+
+e.g. ```http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif```
+
+Amend MooViewer image path
+--------------------------
+
+```bash
+vi /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/src/www/index.html
+```
+
+Amend the parameter as follows:
+
+```bash
+var image = /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/var/images/<image name>
+```
+
+e.g.
+
+```bash
+var image = /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/var/images/PalaisDuLouvre.tif
+```
 
 Start Apache
 ------------
