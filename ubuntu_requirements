@@ -11,6 +11,7 @@ autoconf
 libtool
 libfcgi0ldbl 
 libjpeg8 
+libjpeg62
 libtiff4 
 zlib1g 
 libstdc++6 
