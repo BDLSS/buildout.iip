@@ -161,6 +161,8 @@ cd ~/sites/bodl-iip-srv
 /home/bodl-iip-srv/sites/bodl-iip-srv/parts/apache/bin/apachectl start
 ```
 
+Browse to http://<your server>:8080/index.html
+
 Reboot scripts
 --------------
 
