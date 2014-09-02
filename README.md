@@ -163,6 +163,11 @@ cd ~/sites/bodl-iip-srv
 
 Browse to http://&lt;your server&gt;:8080/index.html
 
+The IIP image server is located at (You should receive a welcome screen at this URL):
+
+http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
+
+If there is something wrong, check the logs at ```/home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/logs/error.log
 Reboot scripts
 --------------
 
