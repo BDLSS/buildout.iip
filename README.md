@@ -169,7 +169,27 @@ http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
 
 If there is something wrong, check the logs at ```/home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/logs/error.log```
 
-Reboot scripts
---------------
+Setup the reboot script in the sudo crontab
+-------------------------------------------
 
-None are necessary. Just restart apache.
+```bash
+su - <sudo user>
+sudo crontab /home/bodl-iip-svc/sites/bodl-iip-svc/bin/cron.txt
+su - bodl-iip-svc
+```
+
+Startup scripts and cron jobs
+-----------------------------
+
+The following script can be run manually. 
+
+```bash
+su - <sudo user>
+/home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl [start|stop|restart]
+```
+
+It will stop/start/restart iip. It runs under a @reboot directive in the sudo crontab to ensure the service comes back up in the event of a server shutdown/restart. It logs progress in ```var/log/reboot.log```.
+
+```bash
+@reboot /home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl start > /home/bodl-iip-svc/sites/bodl-iip-svc/var/log/reboot.log 2>&1
+```
