@@ -1,0 +1,66 @@
+install iip  
+	Download iip
+		wget http://oldmapsonline.googlecode.com/files/iipimage-0.9.9-jp2_amd64.deb
+	Install it
+		http://iipimage.sourceforge.net/2012/05/new-debian-and-ubuntu-packages-released/
+	Configure it (bottom of same page)
+		http://iipimage.sourceforge.net/documentation/server/
+
+httpd.conf = 
+# Set the options on that directory
+# Create a directory for the iipsrv binary
+ScriptAlias /iipsrv/ "/usr/local/httpd/fcgi-bin/"
+
+<Directory "/usr/local/httpd/fcgi-bin">
+AllowOverride None
+Options None
+Order allow,deny
+Allow from all
+</Directory>
+
+# Set the handler
+AddHandler fastcgi-script fcg fcgi fpl
+
+# Initialise the FCGI server - set some default values
+FastCgiServer /usr/local/httpd/fcgi-bin/iipsrv.fcgi \
+-initial-env LOGFILE=/tmp/iipsrv.log \
+-initial-env VERBOSITY=2 \
+-initial-env JPEG_QUALITY=50 \
+-initial-env MAX_IMAGE_CACHE_SIZE=10 \
+-initial-env MAX_CVT=3000
+
+install libgsf-1-dev  https://launchpad.net/ubuntu/precise/+package/libgsf-1-dev
+
+install vips (from source)  https://gist.github.com/msurguy/b474b0b45825e07128f0
+su
+
+mkdir vips
+cd vips
+wget -c http://www.vips.ecs.soton.ac.uk/supported/current/vips-7.38.5.tar.gz
+tar xzvf vips-7.38.5.tar.gz
+cd vips-7.38.5/
+ 
+su - root
+ 
+sudo dpkg --configure -a
+ 
+sudo apt-get install pkg-config
+ 
+sudo apt-get install build-essential pkg-config glib-2.0 libxml2-dev libxslt1-dev libfftw3-dev gettext libgtk2.0-dev python-dev liblcms1-dev liboil-dev libmagickwand-dev libopenexr-dev libcfitsio3-dev gobject-introspection flex bison
+ 
+./configure --prefix=/home/iip/vips && make && make install
+ 
+echo "/usr/local/lib/" >> /etc/ld.so.conf.d/local.conf
+ 
+sudo apt-get install libvips
+ 
+export VIPSHOME=/home/iip/vips
+export PATH=$VIPSHOME/bin:$PATH
+export LD_LIBRARY_PATH=$VIPSHOME/lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=$VIPSHOME/lib/pkgconfig:$PKG_CONFIG_PATH
+
+cd ..
+wget http://upload.wikimedia.org/wikipedia/commons/d/dc/Lower_Manhattan_from_Staten_Island_Ferry_Corrected_Jan_2006.jpg
+mv Lower_Manhattan_from_Staten_Island_Ferry_Corrected_Jan_2006.jpg image.jpg
+ 
+vips dzsave image.jpg x --layout zoomify
