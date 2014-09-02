@@ -134,7 +134,7 @@ Amend MooViewer image path
 --------------------------
 
 ```bash
-vi /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/src/www/index.html
+vi /home/bodl-iip-srv/sites/bodl-iip-srv/src/www/index.html
 ```
 
 Amend the parameter as follows:
