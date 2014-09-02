@@ -1,0 +1,76 @@
+#!/bin/sh
+
+start () {
+    echo -n "Starting Apache $(date)..."
+
+    # start apache
+    /bin/su - ${users:sudo} -c "${buildout:directory}/parts/apache/bin/apachectl start" 
+    RETVAL=$?
+
+    if [ $RETVAL = 0 ]
+    then
+        echo "done."
+    else
+        echo "Apache start failed (it may already be running). See error code for more information."
+    fi
+
+    return $RETVAL
+}
+
+stop () {
+    # stop daemon
+    echo -n "Stopping Apache $(date)..."
+
+    # stop apache
+    /bin/su - ${users:sudo} -c "${buildout:directory}/parts/apache/bin/apachectl stop"
+    RETVAL=$?
+    
+    if [ $RETVAL = 0 ]
+    then
+        echo "done."
+    else
+        echo "Apache stop failed (it may not be running). See error code for more information."
+    fi
+
+    return $RETVAL
+}
+
+
+restart () {
+
+    echo "Restarting Apache $(date)..."
+ 
+	# restart apache
+    /bin/su - ${users:sudo} -c "${buildout:directory}/parts/apache/bin/apachectl restart"
+
+    RETVAL2=$?
+
+    if [ $RETVAL2 = 0 ]
+    then
+        echo "done."
+    else
+        echo "Apache restart failed. See error code for more information."
+    fi
+
+    return $RETVAL
+
+
+}
+
+case "$1" in    
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    restart)
+        restart
+    ;;
+    *)
+        echo $"Usage: mdb1ctl {start|status|stop|restart}"
+        exit 3
+    ;;
+esac
+
+exit $RETVAL
