@@ -6,3 +6,4 @@ install:
 - pip install zc.buildout
 - buildout init
 - bin/buildout -N -t 3 -c travis.cfg
+script:
