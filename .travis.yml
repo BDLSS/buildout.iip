@@ -1,0 +1,7 @@
+language: python
+python: "2.7"
+before_install:
+install:
+- pip install zc.buildout
+- buildout init
+- bin/buildout -N -t 3 -c travis.cfg
