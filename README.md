@@ -200,3 +200,27 @@ It will stop/start/restart iip. It runs under a @reboot directive in the sudo cr
 ```bash
 @reboot /home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl start > /home/bodl-iip-svc/sites/bodl-iip-svc/var/log/reboot.log 2>&1
 ```
+
+Continuous Integration
+----------------------
+
+.travis.yml and jenkins.sh files are made available for CI configuration.
+
+Currently, Travis builds are available at:
+
+https://travis-ci.org/BDLSS
+
+Builds are run with every GIT commit (after a push). This can be skipped by entering ``[skip ci]`` in the commit message.
+
+
+Functional and Unit Testing
+---------------------------
+
+Pytest is executed in the .travis.yml file as follows:
+
+```bash
+script:
+- py.test tests/
+```
+
+This runs all test scripts using the filename format of ``test_<something>.py`` in the ``tests/`` folder.
