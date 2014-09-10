@@ -1,7 +1,5 @@
 from nose import with_setup # optional
  
-from unnecessary_math import multiply
- 
 def setup_module(module):
     print ("") # this is to get a newline after the dots
     print ("setup_module before anything in this file")
