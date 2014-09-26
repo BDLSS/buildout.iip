@@ -1,6 +1,6 @@
 # Docker version 1.2.0, build fa7b24f
 
-FROM ubuntu:ubuntu:12.04
+FROM ubuntu:12.04
 RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
 RUN apt-get install $(cat ubuntu_requirements)
 RUN pip install zc.buildout
