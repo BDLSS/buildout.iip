@@ -10,7 +10,7 @@ FROM ubuntu:12.04
 # --------------------------- UPDATE OS -----------------------------------
 # -------------------------------------------------------------------------
 
-RUN (sudo apt-get update && sudo apt-get upgrade -y -q)
+RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
 
 # -------------------------------------------------------------------------
 # --------------------------- CREATE APP DIR ------------------------------
