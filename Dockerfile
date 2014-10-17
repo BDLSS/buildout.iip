@@ -59,7 +59,7 @@ RUN (cd /root/sites/testbuild && /root/python/2.7.6/bin/virtualenv . && . bin/ac
 # --------------------------- INSTALL IIP -------------------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild/parts/iipsrv/build && sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb)
+RUN (cd /root/sites/testbuild/parts/iipsrv/build && dpkg -i iipimage-0.9.9-jp2_amd64.deb)
 RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/iipsrv.fcgi
 
 # -------------------------------------------------------------------------
