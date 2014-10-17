@@ -4,7 +4,7 @@
 # --------------------------- STIPULATE OS --------------------------------
 # -------------------------------------------------------------------------
 
-FROM ubuntu:14.04
+FROM ubuntu:12.04
 
 # -------------------------------------------------------------------------
 # --------------------------- UPDATE OS -----------------------------------
@@ -28,16 +28,8 @@ COPY / /root/sites/testbuild/
 # --------------------------- INSTALL REQS --------------------------------
 # -------------------------------------------------------------------------
 
-RUN apt-get -y install $(cat /root/sites/testbuild/ubuntu_requirements_ubuntu14)
+RUN apt-get -y install $(cat /root/sites/testbuild/ubuntu_requirements12)
 RUN mkdir -p /root/Downloads
-
-# -------------------------------------------------------------------------
-# --------------------------- GET KAKADU ----------------------------------
-# -------------------------------------------------------------------------
-
-# change Kakadu_v<number>.zip for different versions: 64, 72, 74, etc.
-
-RUN (cd /root/Downloads && curl --user admn2410:PaulB0wl3s -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip && unzip -d kakadu Kakadu_v74.zip)
 
 # -------------------------------------------------------------------------
 # --------------------------- INSTALL PYTHON ------------------------------
@@ -61,25 +53,20 @@ RUN /root/python/2.7.6/bin/pip install virtualenv
 # --------------------------- RUN BUILDOUT AND INSTALL EGGS ---------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild && /root/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg && pip install pillow==2.5.0 && pip install werkzeug==0.9.6 && pip install configobj==5.0.5 && pip install pytest==2.6.2)
+RUN (cd /root/sites/testbuild && /root/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg && pip install pytest==2.6.2)
 
 # -------------------------------------------------------------------------
-# --------------------------- INSTALL LORIS -------------------------------
+# --------------------------- INSTALL IIP -------------------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/src/loris && python setup.py install)
-
-# -------------------------------------------------------------------------
-# --------------------------- SHORTLINKS ----------------------------------
-# -------------------------------------------------------------------------
-
-RUN (ln -s /usr/include/freetype2 freetype && ln -s /usr/lib/`uname -i`-linux-gnu/libfreetype.so /usr/lib/ && ln -s /usr/lib/`uname -i`-linux-gnu/libjpeg.so /usr/lib/ && ln -s /usr/lib/`uname -i`-linux-gnu/libz.so /usr/lib/ && ln -s /usr/lib/`uname -i`-linux-gnu/liblcms.so /usr/lib/ && ln -s /usr/lib/`uname -i`-linux-gnu/libtiff.so /usr/lib/)
+RUN (cd /root/sites/testbuild/parts/iipsrv/build && sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb)
+RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/iipsrv.fcgi
 
 # -------------------------------------------------------------------------
 # --------------------------- GET TEST IMAGE ------------------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild/var/images && curl --user admn2410:PaulB0wl3s -o 67352ccc-d1b0-11e1-89ae-279075081939.jp2 http://databank.ora.ox.ac.uk/dmt/datasets/Images/67352ccc-d1b0-11e1-89ae-279075081939.jp2)
+RUN (mkdir -p /root/sites/testbuild/var/images && cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif)
 
 # -------------------------------------------------------------------------
 # --------------------------- RUN TEST FRAMEWORK --------------------------
