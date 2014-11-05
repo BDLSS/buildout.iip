@@ -66,7 +66,7 @@ RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/
 # --------------------------- GET TEST IMAGE ------------------------------
 # -------------------------------------------------------------------------
 
-RUN (mkdir -p /root/sites/testbuild/var/images && cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif)
+RUN (mkdir -p /root/sites/testbuild/var/images && cd /root/sites/testbuild/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif)
 
 # -------------------------------------------------------------------------
 # --------------------------- RUN TEST FRAMEWORK --------------------------
