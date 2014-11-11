@@ -56,7 +56,7 @@ RUN /root/python/2.7.6/bin/pip install virtualenv
 RUN (cd /root/sites/testbuild && /root/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg && pip install pytest==2.6.2)
 
 # -------------------------------------------------------------------------
-# --------------------------- INSTALL IIP -------------------------------
+# ---------------------------  INSTALL IIP  -------------------------------
 # -------------------------------------------------------------------------
 
 RUN (cd /root/sites/testbuild/parts/iipsrv/build && dpkg -i iipimage-0.9.9-jp2_amd64.deb)
@@ -73,6 +73,25 @@ RUN (mkdir -p /root/sites/testbuild/var/images && cd /root/sites/testbuild/var/i
 # -------------------------------------------------------------------------
 
 RUN (cd /root/sites/testbuild/ && . bin/activate && py.test /root/sites/testbuild/tests/)
-#EXPOSE 8080
-#CMD["loris", "/"]
+
+# -------------------------------------------------------------------------
+# ---------------------------  INSTALL VALIDATOR --------------------------
+# -------------------------------------------------------------------------
+
+RUN (mkdir -p /root/sites/testbuild/parts/validator && cd /root/sites/testbuild/parts/validator && wget --no-check-certificate https://pypi.python.org/packages/source/i/iiif_validator/iiif_validator-0.9.0.tar.gz && tar zxfv iiif_validator-0.9.0.tar.gz && sudo apt-get install libmagic-dev && pip install bottle python-magic lxml)
+
+# -------------------------------------------------------------------------
+# ---------------------------    START SERVER    --------------------------
+# -------------------------------------------------------------------------
+
+WORKDIR /root/sites/testbuild
+EXPOSE 8080
+CMD["iipctl start", "/bin"]
+
+# -------------------------------------------------------------------------
+# ---------------------------    RUN VALIDATOR   --------------------------
+# -------------------------------------------------------------------------
+
+RUN (cd /root/sites/testbuild/parts/validator && ./validate.py -s localhost:8080 -p prefix -i PalaisDuLouvre --version=2.0 -v)
+
 
