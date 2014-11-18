@@ -49,7 +49,7 @@ Setup server (Debian/Ubuntu)
 
 ```bash
 su - <sudo user>
-sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements)
+sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements12)
 su - bodl-iip-srv
 ```
 
