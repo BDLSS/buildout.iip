@@ -87,7 +87,7 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /root/sites/t
 
 WORKDIR /root/sites/testbuild
 EXPOSE 8080
-RUN ( chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && sudo ./iipctl start)
+RUN ( chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start)
 
 # -------------------------------------------------------------------------
 # ---------------------------    RUN VALIDATOR   --------------------------
