@@ -138,6 +138,8 @@ cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
 wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif
 ```
 
+Check their permissions!
+
 Amend MooViewer image path
 --------------------------
 
