@@ -87,12 +87,12 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /root/sites/t
 
 WORKDIR /root/sites/testbuild
 EXPOSE 8080
-CMD["iipctl start", "/bin"]
+RUN ( chown -R ${users:apache}:${users:apache} /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && ./iipctl start)
 
 # -------------------------------------------------------------------------
 # ---------------------------    RUN VALIDATOR   --------------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild/parts/validator && ./validate.py -s localhost:8080 -p prefix -i PalaisDuLouvre --version=2.0 -v)
+RUN (cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i PalaisDuLouvre --version=2.0 -v)
 
 
