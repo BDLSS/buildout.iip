@@ -68,7 +68,7 @@ make install
 cd ..
 wget https://pypi.python.org/packages/source/d/distribute/distribute-0.6.49.tar.gz
 tar zxfv distribute-0.6.49.tar.gz
-~/python/2.7.6/bin/python distribute_setup.py
+~/python/2.7.6/bin/python distribute-0.6.49/distribute_setup.py
 ~/python/2.7.6/bin/easy_install pip
 ~/python/2.7.6/bin/pip install virtualenv
 ```
