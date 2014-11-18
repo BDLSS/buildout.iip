@@ -100,14 +100,17 @@ externalIP = <your server external IP address>
 
 Create a virtualenv and run the buildout
 ----------------------------------------
+
+Add _docker to development.cfg if running in docker environment (or remove [...] from code below).
+
 ```bash
 cd ~/sites/bodl-iip-srv
 ~/python/2.7.6/bin/virtualenv .
-source bin/activate
+. bin/activate
 pip install zc.buildout
 pip install distribute
 buildout init
-buildout -c development.cfg
+buildout -c development[_docker].cfg
 ```
 
 Install IIP server
