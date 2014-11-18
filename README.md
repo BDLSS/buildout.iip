@@ -154,19 +154,15 @@ var image = /home/bodl-iip-srv/sites/bodl-iip-srv/var/images/<image name>
 e.g.
 
 ```bash
-var image = /home/bodl-iip-srv/sites/bodl-iip-srv/iipsrv/var/images/PalaisDuLouvre.tif
+var image = /home/bodl-iip-srv/sites/bodl-iip-srv/var/images/PalaisDuLouvre.tif
 ```
 
 Start Apache
 ------------
 
-From within the virtual environment:
-
-```bash
-su - bodl-iip-srv
-cd ~/sites/bodl-iip-srv
-. bin/activate
-/home/bodl-iip-srv/sites/bodl-iip-srv/parts/apache/bin/apachectl start
+su```bash
+su - <sudo user>
+/home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl start
 ```
 
 Browse to http://&lt;your server&gt;:8080/index.html
