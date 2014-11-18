@@ -163,7 +163,7 @@ Start Apache
 ```bash
 su - <sudo user>
 sudo chmod a+x /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl
-/home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl start
+sudo /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl start
 ```
 
 Browse to http://&lt;your server&gt;:8080/index.html
