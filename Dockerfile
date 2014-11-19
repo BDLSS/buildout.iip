@@ -82,17 +82,13 @@ RUN (mkdir -p /root/sites/testbuild/parts/validator && cd /root/sites/testbuild/
 RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /root/sites/testbuild && . bin/activate && pip install bottle && pip install python-magic && pip install lxml && pip install Pillow)
 
 # -------------------------------------------------------------------------
-# ---------------------------    START SERVER    --------------------------
+# -------------------  START SERVER, RUN VALIDATOR   ----------------------
 # -------------------------------------------------------------------------
+
+#validator needs to run in same intermediate container as the apache start
 
 WORKDIR /root/sites/testbuild
 EXPOSE 8080
-RUN ( chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start)
-
-# -------------------------------------------------------------------------
-# ---------------------------    RUN VALIDATOR   --------------------------
-# -------------------------------------------------------------------------
-
-RUN (cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i PalaisDuLouvre --version=2.0 -v)
+RUN ( chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start && cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i PalaisDuLouvre --version=2.0 -v)
 
 
