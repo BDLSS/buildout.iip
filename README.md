@@ -138,10 +138,11 @@ e.g.
 
 ```bash
 cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
+wget http://iiif-test.stanford.edu/67352ccc-d1b0-11e1-89ae-279075081939.jp2
 wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif
 ```
 
-Check their permissions!
+Check their permissions or the viewer may hang!
 
 Amend MooViewer image path
 --------------------------

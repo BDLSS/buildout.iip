@@ -66,7 +66,7 @@ RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/
 # --------------------------- GET TEST IMAGE ------------------------------
 # -------------------------------------------------------------------------
 
-RUN (mkdir -p /root/sites/testbuild/var/images && cd /root/sites/testbuild/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif)
+RUN (mkdir -p /root/sites/testbuild/var/images && cd /root/sites/testbuild/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif && wget http://iiif-test.stanford.edu/67352ccc-d1b0-11e1-89ae-279075081939.jp2 && chmod 777 67352ccc-d1b0-11e1-89ae-279075081939.jp2 && chmod 777 PalaisDuLouvre.tif)
 
 # -------------------------------------------------------------------------
 # --------------------------- RUN TEST FRAMEWORK --------------------------
@@ -89,6 +89,6 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /root/sites/t
 
 WORKDIR /root/sites/testbuild
 EXPOSE 8080
-RUN ( chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start && cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i PalaisDuLouvre --version=2.0 -v)
+RUN (chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start && cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i 67352ccc-d1b0-11e1-89ae-279075081939 --version=2.0 -v)
 
 
