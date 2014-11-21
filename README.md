@@ -113,16 +113,21 @@ buildout init
 buildout -c development[_docker].cfg
 ```
 
+Upload Kakadu source to server for compilation
+----------------------------------------------
+
+You can retrieve the source from databank (you will need a user account for databank):
+
+```bash
+cd ~/Downloads
+curl --user <username>:<password> -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip 
+unzip -d kakadu Kakadu_v74.zip
+```
+
 Install IIP server
 ------------------
 
 ```bash
-su - <sudo user>
-cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/build
-sudo dpkg -i iipimage-0.9.9-jp2_amd64.deb
-sudo cp /usr/lib/cgi-bin/iipsrv.fcgi /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/fcgi-bin/iipsrv.fcgi
-sudo chown bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/fcgi-bin/iipsrv.fcgi
-su - bodl-iip-srv
 ```
 
 Test images
