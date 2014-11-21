@@ -168,7 +168,7 @@ Start Apache
 
 ```bash
 su - <sudo user>
-sudo chmod a+x /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl
+sudo chmod +x /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl
 sudo /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl start
 ```
 

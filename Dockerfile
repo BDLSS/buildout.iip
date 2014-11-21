@@ -89,6 +89,6 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /root/sites/t
 
 WORKDIR /root/sites/testbuild
 EXPOSE 8080
-RUN (chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod a+x iipctl && ./iipctl start && cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i 67352ccc-d1b0-11e1-89ae-279075081939 --version=2.0 -v)
+RUN (chown -R www-data:www-data /root/sites/testbuild/ && cd /root/sites/testbuild/bin/ && chmod +x iipctl && ./iipctl start && cd /root/sites/testbuild/ && . bin/activate && cd /root/sites/testbuild/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s localhost:8080 -p full -i 67352ccc-d1b0-11e1-89ae-279075081939 --version=2.0 -v)
 
 
