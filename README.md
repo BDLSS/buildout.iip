@@ -124,6 +124,13 @@ curl --user <username>:<password> -o Kakadu_v74.zip https://databank.ora.ox.ac.u
 unzip -d kakadu Kakadu_v74.zip
 ```
 
+And compile...
+
+```bash
+cd ~/Downloads/kakadu/make
+make -f Makefile-Linux-x86-64-gcc
+```
+
 Comile IIP server
 -----------------
 
