@@ -21,4 +21,5 @@ libtiff4-dev
 zlib1g 
 libstdc++6 
 libmemcached6
+libmemcached-dev
 memcached
