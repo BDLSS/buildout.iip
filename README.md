@@ -123,6 +123,20 @@ cd ~/Downloads
 curl --user <username>:<password> -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip 
 unzip -d kakadu Kakadu_v74.zip
 ```
+Add the following to ~/Downloads/kakadu/managed/make/Makefile-Linux-x86-64-gcc (in place of the non-specific java include directives there)
+
+```bash
+INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include       # or wherever the Java
+INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include/linux # includes are on your system
+```
+
+To add TIFF capability, add:
+
+```bash
+DEFINES += -DKDU_INCLUDE_TIFF
+```
+
+in ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc 
 
 And compile...
 
