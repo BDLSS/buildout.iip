@@ -124,10 +124,14 @@ curl --user <username>:<password> -o Kakadu_v74.zip https://databank.ora.ox.ac.u
 unzip -d kakadu Kakadu_v74.zip
 ```
 
-Install IIP server
-------------------
+Comile IIP server
+-----------------
 
 ```bash
+cd ~/sites/bodl-iip-srv/src/iipsrv
+./autogen.sh
+./configure --with-kakadu=~/Downloads/kakadu
+make 
 ```
 
 Test images
