@@ -137,7 +137,7 @@ DEFINES += -DKDU_INCLUDE_TIFF
 ```
 
 
-And compile...
+And test the compile...
 
 ```bash
 cd ~/Downloads/kakadu/make
@@ -150,7 +150,7 @@ Compile IIP server
 ```bash
 cd ~/sites/bodl-iip-srv/src/iipsrv
 ./autogen.sh
-./configure --with-kakadu=~/Downloads/kakadu/bin/Linux-x86-64-gcc
+./configure --with-kakadu=~/Downloads/kakadu/
 make 
 ```
 
