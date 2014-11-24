@@ -6,6 +6,7 @@ gcc
 g++
 make
 wget
+unzip
 openssl
 libssl-dev
 autoconf
@@ -13,7 +14,9 @@ libtool
 libfcgi0ldbl 
 libjpeg8 
 libjpeg62
-libtiff4 
+libjpeg62-dev
+libtiff4
+libtiff4-dev
 zlib1g 
 libstdc++6 
 libmemcached6
