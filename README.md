@@ -136,7 +136,7 @@ To add TIFF capability, add the following in ~/Downloads/kakadu/apps/make/Makefi
 DEFINES += -DKDU_INCLUDE_TIFF
 ```
 
-And test the compile...
+And compile...
 
 ```bash
 cd ~/Downloads/kakadu/make
@@ -148,12 +148,12 @@ If there are no errors, compile the IIP server.
 Compile IIP server
 -----------------
 
-Make sure there is no trailing slash in the --with-kakadu param value.
+Make sure there is no trailing slash in the --with-kakadu param value; also, that it is an absolute path.
 
 ```bash
 cd ~/sites/bodl-iip-srv/src/iipsrv
 ./autogen.sh
-./configure --with-kakadu=~/Downloads/kakadu
+./configure --with-kakadu=/home/bodl-iip-srv/Downloads/kakadu
 make 
 ```
 
