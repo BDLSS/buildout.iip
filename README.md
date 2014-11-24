@@ -136,13 +136,14 @@ To add TIFF capability, add the following in ~/Downloads/kakadu/apps/make/Makefi
 DEFINES += -DKDU_INCLUDE_TIFF
 ```
 
-
 And test the compile...
 
 ```bash
 cd ~/Downloads/kakadu/make
 make -f Makefile-Linux-x86-64-gcc
 ```
+
+If there are no errors, compile the IIP server.
 
 Compile IIP server
 -----------------
