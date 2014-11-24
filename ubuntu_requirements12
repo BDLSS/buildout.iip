@@ -1,7 +1,7 @@
 python-dev
 python-setuptools
 build-essential
-default-jdk
+openjdk-7-jdk
 git
 gcc
 g++

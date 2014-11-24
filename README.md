@@ -144,7 +144,7 @@ cd ~/Downloads/kakadu/make
 make -f Makefile-Linux-x86-64-gcc
 ```
 
-Comile IIP server
+Compile IIP server
 -----------------
 
 ```bash
