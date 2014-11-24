@@ -130,13 +130,12 @@ INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include       # or wherever the 
 INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include/linux # includes are on your system
 ```
 
-To add TIFF capability, add:
+To add TIFF capability, add the following in ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc:
 
 ```bash
 DEFINES += -DKDU_INCLUDE_TIFF
 ```
 
-in ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc 
 
 And compile...
 
