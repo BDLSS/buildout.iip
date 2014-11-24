@@ -148,10 +148,12 @@ If there are no errors, compile the IIP server.
 Compile IIP server
 -----------------
 
+Make sure there is no trailing slash in the --with-kakadu param value.
+
 ```bash
 cd ~/sites/bodl-iip-srv/src/iipsrv
 ./autogen.sh
-./configure --with-kakadu=~/Downloads/kakadu/
+./configure --with-kakadu=~/Downloads/kakadu
 make 
 ```
 
