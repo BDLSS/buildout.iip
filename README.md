@@ -120,8 +120,8 @@ You can retrieve the source from databank (you will need a user account for data
 
 ```bash
 cd ~/Downloads
-curl --user <username>:<password> -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip 
-unzip -d kakadu Kakadu_v74.zip
+curl --user <username>:<password> -o Kakadu_v72.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v72.zip 
+unzip -d kakadu Kakadu_v72.zip
 ```
 Add the following to ~/Downloads/kakadu/managed/make/Makefile-Linux-x86-64-gcc (in place of the non-specific java include directives there)
 
@@ -150,7 +150,7 @@ Compile IIP server
 ```bash
 cd ~/sites/bodl-iip-srv/src/iipsrv
 ./autogen.sh
-./configure --with-kakadu=~/Downloads/kakadu
+./configure --with-kakadu=~/Downloads/kakadu/bin/Linux-x86-64-gcc
 make 
 ```
 
