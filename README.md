@@ -130,7 +130,13 @@ INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include       # or wherever the 
 INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include/linux # includes are on your system
 ```
 
-If you later get a 'undefined reference to ssse3...' error, add the following as well (at the end):
+To add TIFF capability, 
+
+```bash
+DEFINES += -DKDU_INCLUDE_TIFF
+```
+
+If you later get a 'undefined reference to ssse3...' error, add the following at the end of ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc:
 
 ```bash
 DEFINES += -DKDU_NO_SSSE3
