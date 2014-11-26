@@ -136,6 +136,12 @@ To add TIFF capability, add the following in ~/Downloads/kakadu/apps/make/Makefi
 DEFINES += -DKDU_INCLUDE_TIFF
 ```
 
+If you later get a 'undefined reference to ssse3...' error, add the following as well:
+
+```bash
+DEFINES += -DKDU_NO_SSSE3
+```
+
 And compile...
 
 ```bash
