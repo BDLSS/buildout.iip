@@ -15,6 +15,7 @@ libtool
 libfcgi0ldbl 
 libjpeg-dev
 libjpeg8 
+libjpeg8-dev
 libjpeg62
 libjpeg62-dev
 libtiff4
