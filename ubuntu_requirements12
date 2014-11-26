@@ -12,7 +12,9 @@ openssl
 libssl-dev
 autoconf
 libtool
-libfcgi0ldbl 
+libfcgi0ldbl
+libjpeg-turbo8 
+libjpeg-turbo8-dev 
 libjpeg-dev
 libjpeg8 
 libjpeg8-dev
