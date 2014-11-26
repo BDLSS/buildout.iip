@@ -59,7 +59,7 @@ RUN (cd /home/bodl-iip-srv/sites/bodl-iip-srv && /home/bodl-iip-srv/python/2.7.6
 # ------------------  INSTALL & COMPILE KAKADU  ---------------------------
 # -------------------------------------------------------------------------
 
-RUN (export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64' && cd /home/bodl-iip-srv/Downloads && curl --user admn2410:PaulB0wl3s -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip && unzip -d kakadu Kakadu_v74.zip && cd /home/bodl-iip-srv/Downloads/kakadu/make && make -f Makefile-Linux-x86-64-gcc)
+RUN (export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64' && cd /home/bodl-iip-srv/Downloads && curl --user admn2410:PaulB0wl3s -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip && unzip -d kakadu Kakadu_v74.zip && echo 'DEFINES += -DKDU_NO_SSSE3' >> /home/bodl-iip-srv/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc && cd /home/bodl-iip-srv/Downloads/kakadu/make && make -f Makefile-Linux-x86-64-gcc)
 
 # -------------------------------------------------------------------------
 # ---------------------- INSTALL & COMPILE IIP ----------------------------
