@@ -56,11 +56,21 @@ RUN /root/python/2.7.6/bin/pip install virtualenv
 RUN (cd /root/sites/testbuild && /root/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg && pip install pytest==2.6.2)
 
 # -------------------------------------------------------------------------
-# ---------------------------  INSTALL IIP  -------------------------------
+# ------------------  INSTALL & COMPILE KAKADU  ---------------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /root/sites/testbuild/parts/iipsrv/build && dpkg -i iipimage-0.9.9-jp2_amd64.deb)
-RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/iipsrv.fcgi
+RUN (export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64' && cd ~/Downloads && curl --user admn2410:PaulB0wl3s -o Kakadu_v74.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v74.zip && unzip -d kakadu Kakadu_v74.zip && cd /root/Downloads/kakadu/make && make -f Makefile-Linux-x86-64-gcc)
+
+# -------------------------------------------------------------------------
+# ---------------------- INSTALL & COMPILE IIP ----------------------------
+# -------------------------------------------------------------------------
+
+#RUN (cd /root/sites/testbuild/parts/iipsrv/build && dpkg -i iipimage-0.9.9-jp2_amd64.deb)
+
+#RUN (mkdir -p /root/sites/testbuild/src/iipsrv && cd /root/sites/testbuild/src/iipsrv && git clone https://github.com/ruven/iipsrv.git)
+#RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/iipsrv.fcgi
+RUN (cd /root/sites/testbuild/src/iipsrv && ./autogen.sh && ./configure --with-kakadu=/root/sites/testbuild/Downloads/kakadu
+make)
 
 # -------------------------------------------------------------------------
 # --------------------------- GET TEST IMAGE ------------------------------
