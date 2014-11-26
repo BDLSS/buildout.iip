@@ -69,8 +69,7 @@ RUN (export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64' && cd ~/Downloads && c
 
 #RUN (mkdir -p /root/sites/testbuild/src/iipsrv && cd /root/sites/testbuild/src/iipsrv && git clone https://github.com/ruven/iipsrv.git)
 #RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /root/sites/testbuild/parts/iipsrv/fcgi-bin/iipsrv.fcgi
-RUN (cd /root/sites/testbuild/src/iipsrv && ./autogen.sh && ./configure --with-kakadu=/root/sites/testbuild/Downloads/kakadu
-make)
+RUN (cd /root/sites/testbuild/src/iipsrv && ./autogen.sh && ./configure --with-kakadu=/root/sites/testbuild/Downloads/kakadu make)
 
 # -------------------------------------------------------------------------
 # --------------------------- GET TEST IMAGE ------------------------------
