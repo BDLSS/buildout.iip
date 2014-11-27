@@ -64,3 +64,25 @@ wget http://upload.wikimedia.org/wikipedia/commons/d/dc/Lower_Manhattan_from_Sta
 mv Lower_Manhattan_from_Staten_Island_Ferry_Corrected_Jan_2006.jpg image.jpg
  
 vips dzsave image.jpg x --layout zoomify
+
+
+
+/home/bodl-iip-srv/sites/bodl-iip-srv/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2
+
+info.json response for test image:
+{
+  "@context" : "http://iiif.io/api/image/2/context.json",
+  "@id" : "http://127.0.0.1:8080/fcgi-bin/iipsrv.fcgi?iiif=/home/bodl-iip-srv/sites/bodl-iip-srv/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2",
+  "protocol" : "http://iiif.io/api/image",
+  "width" : 1000,
+  "height" : 1000,
+  "tiles" : [
+     { "width" : 256, "height" : 256, "scaleFactors" : [ 1, 2, 4 ] }
+  ],
+  "profile" : [
+     "http://iiif.io/api/image/2/level1.json",
+     { "formats" : [ "jpg" ],
+       "qualities" : [ "native","color","gray" ],
+       "supports" : ["regionByPct","sizeByForcedWh","sizeByWh","sizeAboveFull","rotationBy90s","mirroring","gray"] }
+  ]
+}
