@@ -3,7 +3,7 @@ Installation (Ubuntu 12.04.4 LTS)
 
 IIP is not yet compatible with Ubuntu 14.
 
-![alt tag](https://travis-ci.org/BDLSS/buildout.iip.svg?branch=master)
+https://registry.hub.docker.com/u/calvinbutcher/buildout.loris/
 
 Create user "bodl-iip-svc"
 ------------------
