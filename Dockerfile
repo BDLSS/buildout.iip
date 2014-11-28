@@ -23,7 +23,7 @@ RUN (adduser --disabled-password --gecos '' bodl-iip-srv && adduser bodl-iip-srv
 # -------------------------------------------------------------------------
 
 COPY / /home/bodl-iip-srv/sites/bodl-iip-srv/
-RUN -R chown bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv
+RUN chown -R bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv
 USER bodl-iip-srv
 
 # -------------------------------------------------------------------------
