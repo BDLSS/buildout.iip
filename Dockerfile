@@ -24,13 +24,13 @@ RUN (adduser --disabled-password --gecos '' bodl-iip-srv && adduser bodl-iip-srv
 
 COPY / /home/bodl-iip-srv/sites/bodl-iip-srv/
 RUN chown -R bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv
-USER bodl-iip-srv
 
 # -------------------------------------------------------------------------
 # --------------------------- INSTALL REQS --------------------------------
 # -------------------------------------------------------------------------
 
 RUN apt-get -y install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements12)
+USER bodl-iip-srv
 RUN mkdir -p /home/bodl-iip-srv/Downloads
 
 # -------------------------------------------------------------------------
@@ -50,6 +50,12 @@ RUN (cd /home/bodl-iip-srv/Downloads && wget --no-check-certificate https://pypi
 RUN /home/bodl-iip-srv/python/2.7.6/bin/python /home/bodl-iip-srv/Downloads/distribute-0.6.49/distribute_setup.py
 RUN /home/bodl-iip-srv/python/2.7.6/bin/easy_install pip
 RUN /home/bodl-iip-srv/python/2.7.6/bin/pip install virtualenv
+
+# -------------------------------------------------------------------------
+# --------------------------- BUILDOUT CACHE ------------------------------
+# -------------------------------------------------------------------------
+
+RUN (mkdir /home/bodl-iip-srv/.buildout && cd /home/bodl-iip-srv/.buildout && mkdir eggs && mkdir downloads && mkdir extends && (echo "[buildout]" && echo "eggs-directory = /home/bodl-iip-srv/.buildout/eggs" && echo "download-cache = /home/bodl-iip-srv/.buildout/downloads" && echo "extends-cache = /home/bodl-iip-srv/.buildout/extends") >> /home/bodl-iip-srv/.buildout/default.cfg)
 
 # -------------------------------------------------------------------------
 # --------------------------- RUN BUILDOUT AND INSTALL EGGS ---------------
