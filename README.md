@@ -1,12 +1,20 @@
-Installation (Ubuntu 12.04.4 LTS)
-=================================
+Introduction
+============
 
-IIP is not yet compatible with Ubuntu 14.
+This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 and Kakadu 7.2. These versions can be changed, see ```development[_docker].cfg``` and ```Dockerfile```. 
 
+BDLSS Docker CI
 https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
 
+Github IIP source https://github.com/ruven/iipsrv
+
+Installation
+============
+
+To deploy IIP on a server, follow these instructions. Whenever this GIT account is updated, Docker will run a test deployment at ```https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/```. Please see **Continuous Integration** section below for more details.
+
 Create user "bodl-iip-svc"
-------------------
+--------------------------
 
 ```bash
 sudo useradd bodl-iip-srv
@@ -44,12 +52,12 @@ mkdir -p ~/sites/bodl-iip-srv
 cd ~/sites/bodl-iip-srv
 git clone https://github.com/BDLSS/buildout.iip.git ./
 ```
-Setup server (Debian/Ubuntu)
-----------------------------
+Setup server 
+------------
 
 ```bash
 su - <sudo user>
-sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements12)
+sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements)
 su - bodl-iip-srv
 ```
 
@@ -240,23 +248,16 @@ It will stop/start/restart iip. It runs under a @reboot directive in the sudo cr
 Continuous Integration
 ----------------------
 
-.travis.yml and jenkins.sh files are made available for CI configuration.
+The Dockerfile will run the ```_docker.cfg``` version of development.cfg. This just ensures that users are named properly (the 'env' recipe does not work inside containers) and that the localhost is pointed to all IPs (as this cannot be dictated or predicted when creating a container).
 
-Currently, Travis builds are available at:
+Docker
+https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
 
-https://travis-ci.org/BDLSS
-
-Builds are run with every GIT commit (after a push). This can be skipped by entering ``[skip ci]`` in the commit message.
-
+If any of the 21 IIIF validation tests fail, Docker will exit with a non-zero result. This means the Docker build will fail and read "Error".
 
 Functional and Unit Testing
 ---------------------------
 
-Pytest is executed in the .travis.yml file as follows:
-
-```bash
-script:
-- py.test tests/
-```
+Pytest is executed in the docker run.
 
 This runs all test scripts using the filename format of ``test_<something>.py`` in the ``tests/`` folder.

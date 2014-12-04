@@ -29,7 +29,7 @@ RUN chown -R bodl-iip-srv:bodl-iip-srv /home/bodl-iip-srv
 # --------------------------- INSTALL REQS --------------------------------
 # -------------------------------------------------------------------------
 
-RUN apt-get -y install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements12)
+RUN apt-get -y install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements)
 USER bodl-iip-srv
 RUN mkdir -p /home/bodl-iip-srv/Downloads
 
@@ -73,10 +73,6 @@ RUN (export JAVA_HOME='/usr/lib/jvm/java-7-openjdk-amd64' && cd /home/bodl-iip-s
 # ---------------------- INSTALL & COMPILE IIP ----------------------------
 # -------------------------------------------------------------------------
 
-#RUN (cd /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/build && dpkg -i iipimage-0.9.9-jp2_amd64.deb)
-
-#RUN (mkdir -p /home/bodl-iip-srv/sites/bodl-iip-srv/src/iipsrv && cd /home/bodl-iip-srv/sites/bodl-iip-srv/src/iipsrv && git clone https://github.com/ruven/iipsrv.git)
-#RUN cp /usr/lib/cgi-bin/iipsrv.fcgi /home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/fcgi-bin/iipsrv.fcgi
 RUN (cd /home/bodl-iip-srv/sites/bodl-iip-srv/src/iipsrv && ./autogen.sh && ./configure --with-kakadu=/home/bodl-iip-srv/Downloads/kakadu && make)
 
 # -------------------------------------------------------------------------
