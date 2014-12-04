@@ -1,12 +1,7 @@
 Introduction
 ============
 
-This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 and Kakadu 7.4. These versions can be changed, see ```development[_docker].cfg``` and ```Dockerfile```. 
-
-BDLSS Docker CI
-https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
-
-Github IIP source https://github.com/ruven/iipsrv
+This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 (https://github.com/ruven/iipsrv) and Kakadu 7.4. These versions can be changed, see ```development[_docker].cfg``` and ```Dockerfile```. 
 
 Continuous Integration
 ----------------------
