@@ -17,13 +17,13 @@ Create user "bodl-iip-svc"
 --------------------------
 
 ```bash
-sudo useradd bodl-iip-srv
-sudo passwd bodl-iip-srv
-sudo mkdir -p /home/bodl-iip-srv/.ssh
+sudo useradd bodl-iip-svc
+sudo passwd bodl-iip-svc
+sudo mkdir -p /home/bodl-iip-svc/.ssh
 cd /home
-sudo chown -R bodl-iip-srv:bodl-iip-srv bodl-iip-srv/
-sudo chsh -s /bin/bash bodl-iip-srv
-su - bodl-iip-srv
+sudo chown -R bodl-iip-svc:bodl-iip-svc bodl-iip-svc/
+sudo chsh -s /bin/bash bodl-iip-svc
+su - bodl-iip-svc
 ssh-keygen -t rsa
 ```
 
@@ -47,9 +47,9 @@ git config --global user.name "name in quotes"
 Checkout the buildout
 ---------------------
 ```bash
-su - bodl-iip-srv
-mkdir -p ~/sites/bodl-iip-srv
-cd ~/sites/bodl-iip-srv
+su - bodl-iip-svc
+mkdir -p ~/sites/bodl-iip-svc
+cd ~/sites/bodl-iip-svc
 git clone https://github.com/BDLSS/buildout.iip.git ./
 ```
 Setup server 
@@ -57,20 +57,20 @@ Setup server
 
 ```bash
 su - <sudo user>
-sudo apt-get install $(cat /home/bodl-iip-srv/sites/bodl-iip-srv/ubuntu_requirements)
-su - bodl-iip-srv
+sudo apt-get install $(cat /home/bodl-iip-svc/sites/bodl-iip-svc/ubuntu_requirements)
+su - bodl-iip-svc
 ```
 
 Install Python
 --------------
 ```bash
-su - bodl-iip-srv
+su - bodl-iip-svc
 mkdir -p ~/Downloads
 cd ~/Downloads
 wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz --no-check-certificate
 tar zxfv Python-2.7.6.tgz
 cd Python-2.7.6
-./configure --prefix=$HOME/python/2.7.6 --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath=/home/bodl-iip-srv/python/2.7.6/lib"
+./configure --prefix=$HOME/python/2.7.6 --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath=/home/bodl-iip-svc/python/2.7.6/lib"
 make
 make install
 cd ..
@@ -90,9 +90,9 @@ mkdir eggs
 mkdir downloads
 mkdir extends
 echo "[buildout]
-eggs-directory = /home/bodl-iip-srv/.buildout/eggs
-download-cache = /home/bodl-iip-srv/.buildout/downloads
-extends-cache = /home/bodl-iip-srv/.buildout/extends" >> ~/.buildout/default.cfg
+eggs-directory = /home/bodl-iip-svc/.buildout/eggs
+download-cache = /home/bodl-iip-svc/.buildout/downloads
+extends-cache = /home/bodl-iip-svc/.buildout/extends" >> ~/.buildout/default.cfg
 ```
 Change the IP address for apache config
 ---------------------------------------
@@ -112,7 +112,7 @@ Create a virtualenv and run the buildout
 Add _docker to development.cfg if running in docker environment (or remove [...] from code below).
 
 ```bash
-cd ~/sites/bodl-iip-srv
+cd ~/sites/bodl-iip-svc
 ~/python/2.7.6/bin/virtualenv .
 . bin/activate
 pip install zc.buildout
@@ -162,9 +162,9 @@ Compile IIP server
 Make sure there is no trailing slash in the --with-kakadu param value; also, that it is an absolute path.
 
 ```bash
-cd ~/sites/bodl-iip-srv/src/iipsrv
+cd ~/sites/bodl-iip-svc/src/iipsrv
 ./autogen.sh
-./configure --with-kakadu=/home/bodl-iip-srv/Downloads/kakadu
+./configure --with-kakadu=/home/bodl-iip-svc/Downloads/kakadu
 make 
 ```
 
@@ -172,7 +172,7 @@ Test images
 -----------
 
 ```bash
-mkdir -p /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
+mkdir -p /home/bodl-iip-svc/sites/bodl-iip-svc/var/images
 ```
 
 Copy your ```.tif``` and ```.jp2``` images into this directory. 
@@ -180,7 +180,7 @@ Copy your ```.tif``` and ```.jp2``` images into this directory.
 e.g. 
 
 ```bash
-cd /home/bodl-iip-srv/sites/bodl-iip-srv/var/images
+cd /home/bodl-iip-svc/sites/bodl-iip-svc/var/images
 wget http://iiif-test.stanford.edu/67352ccc-d1b0-11e1-89ae-279075081939.jp2
 wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif
 ```
@@ -191,19 +191,19 @@ Amend MooViewer image path
 --------------------------
 
 ```bash
-vi /home/bodl-iip-srv/sites/bodl-iip-srv/src/www/index.html
+vi /home/bodl-iip-svc/sites/bodl-iip-svc/src/www/index.html
 ```
 
 Amend the parameter as follows:
 
 ```bash
-var image = /home/bodl-iip-srv/sites/bodl-iip-srv/var/images/<image name>
+var image = /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/<image name>
 ```
 
 e.g.
 
 ```bash
-var image = /home/bodl-iip-srv/sites/bodl-iip-srv/var/images/PalaisDuLouvre.tif
+var image = /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/PalaisDuLouvre.tif
 ```
 
 Start Apache
@@ -211,8 +211,8 @@ Start Apache
 
 ```bash
 su - <sudo user>
-sudo chmod +x /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl
-sudo /home/bodl-iip-srv/sites/bodl-iip-srv/bin/iipctl start
+sudo chmod +x /home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl
+sudo /home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl start
 ```
 
 Browse to http://&lt;your server&gt;:8080/index.html
@@ -221,7 +221,7 @@ The IIP image server is located at (You should receive a welcome screen at this 
 
 http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
 
-If there is something wrong, check the logs at ```/home/bodl-iip-srv/sites/bodl-iip-srv/parts/iipsrv/logs/error.log```
+If there is something wrong, check the logs at ```/home/bodl-iip-svc/sites/bodl-iip-svc/parts/iipsrv/logs/error.log```
 
 Setup the reboot script in the sudo crontab
 -------------------------------------------
