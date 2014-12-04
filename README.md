@@ -118,7 +118,7 @@ cd ~/sites/bodl-iip-svc
 pip install zc.buildout
 pip install distribute
 buildout init
-buildout -c development[_docker].cfg
+buildout -c development.cfg
 ```
 
 Upload Kakadu source to server for compilation
