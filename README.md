@@ -8,6 +8,23 @@ https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
 
 Github IIP source https://github.com/ruven/iipsrv
 
+Continuous Integration
+----------------------
+
+The Dockerfile will run the ```_docker.cfg``` version of development.cfg. This just ensures that users are named properly (the 'env' recipe does not work inside containers) and that the localhost is pointed to all IPs (as this cannot be dictated or predicted when creating a container).
+
+Docker
+https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
+
+If any of the 21 IIIF validation tests fail, Docker will exit with a non-zero result. This means the Docker build will fail and read "Error".
+
+Functional and Unit Testing
+---------------------------
+
+Pytest is executed in the docker run.
+
+This runs all test scripts using the filename format of ``test_<something>.py`` in the ``tests/`` folder.
+
 Installation
 ============
 
@@ -248,19 +265,3 @@ It will stop/start/restart iip. It runs under a @reboot directive in the sudo cr
 @reboot /home/bodl-iip-svc/sites/bodl-iip-svc/bin/iipctl start > /home/bodl-iip-svc/sites/bodl-iip-svc/var/log/reboot.log 2>&1
 ```
 
-Continuous Integration
-----------------------
-
-The Dockerfile will run the ```_docker.cfg``` version of development.cfg. This just ensures that users are named properly (the 'env' recipe does not work inside containers) and that the localhost is pointed to all IPs (as this cannot be dictated or predicted when creating a container).
-
-Docker
-https://registry.hub.docker.com/u/calvinbutcher/buildout.iip/
-
-If any of the 21 IIIF validation tests fail, Docker will exit with a non-zero result. This means the Docker build will fail and read "Error".
-
-Functional and Unit Testing
----------------------------
-
-Pytest is executed in the docker run.
-
-This runs all test scripts using the filename format of ``test_<something>.py`` in the ``tests/`` folder.
