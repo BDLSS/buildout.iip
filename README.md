@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 (https://github.com/ruven/iipsrv) and Kakadu 7.4. These versions can be changed, see ```development[_docker].cfg``` and ```Dockerfile```. 
+This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 (https://github.com/ruven/iipsrv) and Kakadu 7.4. These versions can be changed, see ```development.cfg```, ```development_docker.cfg``` and ```Dockerfile```. 
 
 Continuous Integration
 ----------------------
