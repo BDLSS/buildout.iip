@@ -131,6 +131,9 @@ cd ~/Downloads
 curl --user <username>:<password> -o Kakadu_v72.zip https://databank.ora.ox.ac.uk/dmt/datasets/Kakadu/Kakadu_v72.zip 
 unzip -d kakadu Kakadu_v72.zip
 ```
+
+Otherwise you will need to ```scp```, ```wget``` or ```curl``` your licensed Kakadu source into the ```~/Downloads``` directory as a folder called 'kakadu'.
+
 Add the following to ~/Downloads/kakadu/managed/make/Makefile-Linux-x86-64-gcc (in place of the non-specific java include directives there)
 
 ```bash
