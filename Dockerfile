@@ -23,14 +23,12 @@ RUN (adduser --disabled-password --gecos '' bodl-iip-svc && adduser bodl-iip-svc
 # -------------------------------------------------------------------------
 
 COPY / /home/bodl-iip-svc/sites/bodl-iip-svc/
-RUN chown -R bodl-iip-svc:bodl-iip-svc /home/bodl-iip-svc
 
 # -------------------------------------------------------------------------
 # --------------------------- INSTALL REQS --------------------------------
 # -------------------------------------------------------------------------
 
 RUN apt-get -y install $(cat /home/bodl-iip-svc/sites/bodl-iip-svc/ubuntu_requirements)
-USER bodl-iip-svc
 RUN mkdir -p /home/bodl-iip-svc/Downloads
 
 # -------------------------------------------------------------------------
@@ -100,8 +98,9 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /home/bodl-ii
 
 #validator needs to run in same intermediate container as the apache start
 
+RUN chown -R bodl-iip-svc:bodl-iip-svc /home/bodl-iip-svc
 WORKDIR /home/bodl-iip-svc/sites/bodl-iip-svc
 EXPOSE 8080
-RUN (chown -R www-data:www-data /home/bodl-iip-svc/sites/bodl-iip-svc/src && cd /home/bodl-iip-svc/sites/bodl-iip-svc/bin/ && chmod +x iipctl && sleep 2 && ./iipctl start && cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s 127.0.0.1:8080 -p "iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v)
+RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/bin/ && chmod +x iipctl && sleep 2 && ./iipctl start && cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s 127.0.0.1:8080 -p loris -i 67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v)
 
 
