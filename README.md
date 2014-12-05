@@ -161,7 +161,7 @@ Or
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 ```
 
-If you later get a 'undefined reference to ssse3...' error, add the following at the end of ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc:
+Add the following at the end of ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc:
 
 ```bash
 DEFINES += -DKDU_NO_SSSE3
@@ -194,7 +194,7 @@ cd ~/sites/bodl-iip-svc/src/iipsrv
 make 
 ```
 
-The result should read as follows:
+The ```./configure`` result should read as follows:
 
 ```bash
 Options Enabled:
@@ -205,6 +205,7 @@ Options Enabled:
  LitleCMS:	
  ```
  
+ Then ```make``` it.
 
 Test images
 -----------
