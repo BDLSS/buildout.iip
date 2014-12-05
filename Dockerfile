@@ -101,6 +101,6 @@ RUN (apt-get -y install libmagic-dev libxml2-dev libxslt-dev && cd /home/bodl-ii
 RUN chown -R bodl-iip-svc:bodl-iip-svc /home/bodl-iip-svc
 WORKDIR /home/bodl-iip-svc/sites/bodl-iip-svc
 EXPOSE 8080
-RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/bin/ && chmod +x iipctl && sleep 2 && ./iipctl start && cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s 127.0.0.1:8080 -p "iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v)
+RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/bin/ && chmod +x iipctl && sleep 2 && ./iipctl start && cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ && ./iiif-validate.py -s 127.0.0.1:8080 -p "fcgi-bin/iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v)
 
 
