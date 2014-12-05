@@ -148,17 +148,29 @@ unzip -d kakadu Kakadu_v72.zip
 
 Otherwise you will need to ```scp```, ```wget``` or ```curl``` your licensed Kakadu source into the ```~/Downloads``` directory as a folder called 'kakadu'.
 
-Add the following to ~/Downloads/kakadu/managed/make/Makefile-Linux-x86-64-gcc (in place of the non-specific java include directives there)
+Add the following to ```~/Downloads/kakadu/managed/make/Makefile-Linux-x86-64-gcc``` (in place of the non-specific java include directives there)
 
 ```bash
 INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include       # or wherever the Java
 INCLUDES += -I/usr/lib/jvm/java-7-openjdk-amd64/include/linux # includes are on your system
 ```
 
+Or
+
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+```
+
 If you later get a 'undefined reference to ssse3...' error, add the following at the end of ~/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc:
 
 ```bash
 DEFINES += -DKDU_NO_SSSE3
+```
+
+You can do this by typing the following in the command line:
+
+```bash
+echo 'DEFINES += -DKDU_NO_SSSE3' >> /home/bodl-iip-svc/Downloads/kakadu/apps/make/Makefile-Linux-x86-64-gcc
 ```
 
 And compile...
