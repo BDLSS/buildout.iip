@@ -194,6 +194,18 @@ cd ~/sites/bodl-iip-svc/src/iipsrv
 make 
 ```
 
+The result should read as follows:
+
+```bash
+Options Enabled:
+---------------
+ Memcached: 			true
+ JPEG2000 (Kakadu):		true
+ PNG Output:			false
+ LitleCMS:	
+ ```
+ 
+
 Test images
 -----------
 
