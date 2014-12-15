@@ -59,7 +59,7 @@ RUN (mkdir /home/bodl-iip-svc/.buildout && cd /home/bodl-iip-svc/.buildout && mk
 # --------------------------- RUN BUILDOUT AND INSTALL EGGS ---------------
 # -------------------------------------------------------------------------
 
-RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc && /home/bodl-iip-svc/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg && pip install pytest==2.6.2)
+RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc && /home/bodl-iip-svc/python/2.7.6/bin/virtualenv . && . bin/activate && pip install zc.buildout && pip install distribute && buildout init && buildout -c development_docker.cfg)
 
 # -------------------------------------------------------------------------
 # ------------------  INSTALL & COMPILE KAKADU  ---------------------------
@@ -80,10 +80,10 @@ RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/src/iipsrv && ./autogen.sh && ./co
 RUN (mkdir -p /home/bodl-iip-svc/sites/bodl-iip-svc/var/images && cd /home/bodl-iip-svc/sites/bodl-iip-svc/var/images && wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif && wget http://iiif-test.stanford.edu/67352ccc-d1b0-11e1-89ae-279075081939.jp2 && chmod 777 67352ccc-d1b0-11e1-89ae-279075081939.jp2 && chmod 777 PalaisDuLouvre.tif)
 
 # -------------------------------------------------------------------------
-# --------------------------- RUN TEST FRAMEWORK --------------------------
+# --------------------- INSTALL & RUN TEST FRAMEWORK ----------------------
 # -------------------------------------------------------------------------
 
-RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && py.test /home/bodl-iip-svc/sites/bodl-iip-svc/tests/)
+RUN (cd /home/bodl-iip-svc/sites/bodl-iip-svc/ && . bin/activate && pip install pytest==2.6.2 && py.test /home/bodl-iip-svc/sites/bodl-iip-svc/tests/)
 
 # -------------------------------------------------------------------------
 # ---------------------------  INSTALL VALIDATOR --------------------------
