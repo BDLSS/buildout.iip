@@ -32,20 +32,20 @@ http://iiif-test.stanford.edu/
 Or you can download the validator and run it on your server (once you have started the application), as follows:
 
 ```bash
-cd /home/bodl-loris-svc/sites/bodl-loris-svc/parts 
+cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts 
 wget --no-check-certificate https://pypi.python.org/packages/source/i/iiif-validator/iiif-validator-0.9.1.tar.gz
 tar zxfv iiif-validator-0.9.1.tar.gz
 su - <sudo user>
 sudo apt-get -y install libmagic-dev libxml2-dev libxslt-dev
-su - bodl-loris-svc
-cd /home/bodl-loris-svc/sites/bodl-loris-svc 
+su - bodl-iip-svc
+cd /home/bodl-iip-svc/sites/bodl-iip-svc 
 . bin/activate 
 pip install bottle 
 pip install python-magic 
 pip install lxml 
 pip install Pillow
-cd /home/bodl-loris-svc/sites/bodl-loris-svc/parts/iiif-validator-0.9.1/ 
-./iiif-validate.py -s <internal IP address>:8080 -p 'loris' -i 67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v
+cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ 
+./iiif-validate.py -s 127.0.0.1:8080 -p "fcgi-bin/iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -version
 ```
 
 Installation
