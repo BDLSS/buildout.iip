@@ -3,6 +3,23 @@ Introduction
 
 This Loris build is intended for Ubuntu 12.0, IIP 0.9.9 (https://github.com/ruven/iipsrv) and Kakadu 7.4. These versions can be changed, see ```development.cfg```, ```development_docker.cfg``` and ```Dockerfile```. 
 
+General
+-------
+
+**Core application source** is held in ```/src```
+
+**Eggs** are held in ```/home/bodl-loris-svc/.buildout/eggs```
+
+**FCGI conf** is held in ```/parts/apache/conf```
+
+**Virtualenv Python** is held in ```/home/bodl-loris-svc/python```
+
+**Caches and logs and images** are held in ```/var``` (never cleared in event of buildout re-run)
+
+**Components of application stack** (such as webserver) are held in ```/parts```
+
+**Apache start script** is held in ```/bin```
+
 Continuous Integration
 ----------------------
 
