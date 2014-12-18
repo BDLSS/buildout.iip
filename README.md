@@ -62,7 +62,7 @@ pip install python-magic
 pip install lxml 
 pip install Pillow
 cd /home/bodl-iip-svc/sites/bodl-iip-svc/parts/iiif-validator-0.9.1/ 
-./iiif-validate.py -s 127.0.0.1:8080 -p "fcgi-bin/iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -version
+./iiif-validate.py -s 127.0.0.1:8080 -p "fcgi-bin/iipsrv.fcgi?iiif=" -i /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/67352ccc-d1b0-11e1-89ae-279075081939.jp2 --version=2.0 -v
 ```
 
 Installation
