@@ -333,6 +333,8 @@ http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
 
 If there is something wrong, check the logs at ```/home/bodl-iip-svc/sites/bodl-iip-svc/parts/iipsrv/logs/error.log```
 
+To run a IIIF validation test see the **IIIF Validation** section in the introduction (above).
+
 Setup the reboot script in the sudo crontab
 -------------------------------------------
 
