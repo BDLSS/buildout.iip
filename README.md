@@ -179,7 +179,13 @@ Change the IP address for apache config
 edit development or production.cfg:
 
 ```bash
+cd ~/sites/bodl-iip-svc
+vi development.cfg
+```
 
+Edit the following section:
+
+```bash
 [hosts]
 internalIP = <your server internal IP address>
 externalIP = <your server external IP address>
