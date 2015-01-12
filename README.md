@@ -6,19 +6,19 @@ This IIP build is intended for Ubuntu 12.0, IIP 0.9.9 (https://github.com/ruven/
 General
 -------
 
-**Core application source** is held in ```/home/bodl-loris-svc/sites/bodl-loris-svc/src```
+**Core application source** is held in ```/home/bodl-iip-svc/sites/bodl-iip-svc/src```
 
-**Eggs** are held in ```/home/bodl-loris-svc/.buildout/eggs```
+**Eggs** are held in ```/home/bodl-iip-svc/.buildout/eggs```
 
-**FCGI conf** is held in ```/home/bodl-loris-svc/sites/bodl-loris-svc/parts/apache/conf```
+**FCGI conf** is held in ```/home/bodl-iip-svc/sites/bodl-iip-svc/parts/apache/conf```
 
-**Virtualenv Python** is held in ```/home/bodl-loris-svc/python```
+**Virtualenv Python** is held in ```/home/bodl-iip-svc/python```
 
-**Caches and logs and images** are held in ```/home/bodl-loris-svc/sites/bodl-loris-svc/var``` (never cleared in event of buildout re-run)
+**Caches and logs and images** are held in ```/home/bodl-iip-svc/sites/bodl-iip-svc/var``` (never cleared in event of buildout re-run)
 
-**Components of application stack** (such as webserver) are held in ```/home/bodl-loris-svc/sites/bodl-loris-svc/parts```
+**Components of application stack** (such as webserver) are held in ```/home/bodl-iip-svc/sites/bodl-iip-svc/parts```
 
-**Apache start script** is held in ```/home/bodl-loris-svc/sites/bodl-loris-svc/bin```
+**Apache start script** is held in ```/home/bodl-iip-svc/sites/bodl-iip-svc/bin```
 
 Continuous Integration
 ----------------------
