@@ -331,7 +331,7 @@ The IIP image server is located at (You should receive a welcome screen at this 
 
 http://&lt;your server&gt;:8080/fcgi-bin/iipsrv.fcgi
 
-If there is something wrong, check the logs at ```/home/bodl-iip-svc/sites/bodl-iip-svc/parts/iipsrv/logs/error.log```
+If there is something wrong, check the logs at ```/home/bodl-iip-svc/sites/bodl-iip-svc/var/iipsrv/logs/error.log```
 
 To run a IIIF validation test see the **IIIF Validation** section in the introduction (above).
 
