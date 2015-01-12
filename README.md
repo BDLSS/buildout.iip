@@ -191,6 +191,22 @@ internalIP = <your server internal IP address>
 externalIP = <your server external IP address>
 ```
 
+Mirador Viewer
+--------------
+
+To install Mirador viewer alter the end section of ```development.cfg```. Uncomment the viewer you want.
+
+```bash
+[sources]
+# Mooviewer
+www = git https://github.com/ruven/iipmooviewer egg=false
+
+# Mirador
+#www = git https://github.com/IIIF/mirador.git egg=false
+```
+
+After running the buildout you will need to install a couple of other things and then install the Mirador source (see section 'Installing Mirador' below).
+
 Create a virtualenv and run the buildout
 ----------------------------------------
 
@@ -297,8 +313,8 @@ wget http://merovingio.c2rmf.cnrs.fr/iipimage/PalaisDuLouvre.tif
 
 Check their permissions or the viewer may hang!
 
-Amend MooViewer image path
---------------------------
+Amend MooViewer image path (if not using Mirador)
+-------------------------------------------------
 
 ```bash
 vi /home/bodl-iip-svc/sites/bodl-iip-svc/src/www/index.html
@@ -315,6 +331,18 @@ e.g.
 ```bash
 var image = /home/bodl-iip-svc/sites/bodl-iip-svc/var/images/PalaisDuLouvre.tif
 ```
+
+Installing Mirador
+------------------
+
+```bash
+sudo apt-get install nodejs npm
+sudo npm install -g grunt-cli
+cd /home/bodl-iip-svc/sites/bodl-iip-svc/src/www
+sudo npm install
+```
+
+Browse as below to load the viewer.
 
 Start Apache
 ------------
