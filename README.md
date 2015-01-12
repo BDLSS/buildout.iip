@@ -120,9 +120,9 @@ http://shortrecipes.blogspot.co.uk/2014/06/python-34-and-pillow-24-with-jpeg2000
 ```bash
 su - <sudo user>
 sudo apt-get install -y -q wget cmake make
-su - bodl-loris-svc
-mkdir -p /home/bodl-loris-svc/Downloads 
-cd /home/bodl-loris-svc/Downloads 
+su - bodl-iip-svc
+mkdir -p /home/bodl-iip-svc/Downloads 
+cd /home/bodl-iip-svc/Downloads 
 wget http://downloads.sourceforge.net/project/openjpeg.mirror/2.0.1/openjpeg-2.0.1.tar.gz 
 tar xzvf openjpeg-2.0.1.tar.gz 
 cd openjpeg-2.0.1/ 
