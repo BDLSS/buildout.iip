@@ -26,3 +26,5 @@ libstdc++6
 libmemcached6
 libmemcached-dev
 memcached
+nodejs
+npm
