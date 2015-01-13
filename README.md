@@ -336,7 +336,7 @@ Installing Mirador
 ------------------
 
 ```bash
-sudo apt-get install nodejs npm
+sudo apt-get install nodejs nodejs-legacy npm
 sudo npm install -g grunt-cli
 cd /home/bodl-iip-svc/sites/bodl-iip-svc/src/www
 sudo npm install
