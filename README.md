@@ -70,6 +70,11 @@ Installation
 
 To deploy IIP on a server, follow these instructions. Whenever this GIT account is updated, Docker will run a test deployment at ```https://registry.hub.docker.com/u/bdlss/buildout.iip/```. Please see **Continuous Integration** section above for more details.
 
+First things first
+------------------
+
+Edit Dockerfile curl commands to contain databank username and password when downloading kakadu library.
+
 Create user "bodl-iip-svc"
 --------------------------
 
