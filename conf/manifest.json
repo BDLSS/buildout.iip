@@ -1,0 +1,60 @@
+{
+  "@context": "http://www.shared-canvas.org/ns/context.json",
+  "@id": "http://dms-data.stanford.edu/Walters/zp295gk6974/manifest.json",
+  "@type": "sc:Manifest",
+  "label": "Walters MS 5",
+  "agent": "",
+  "date": "1000 - 1099 CE",
+  "description": "These are images of Walters Ms. W.5, Gospels of Abbot Duden, on parchment, 11th century. For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W5/description.html [NOTE: Cataloging in process]",
+  "attribution": "Provided by the Walters Art Museum, Baltimore, MD",
+  "license": "Licensed for use under Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode. Images are free for any noncommercial use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.",
+  "seeAlso": {
+    "@id": "http://purl.stanford.edu/zp295gk6974.mods",
+    "profile": "application/mods+xml"
+  },
+  "metadata": [
+    { "label":"Author", "value":"Anne Author" },
+    { "label":"Published",
+      "value": [
+        { "@value": "Paris, circa 1400", "@language":"en" },
+        { "@value": "Paris, environ 1400", "@language":"fr" }
+      ]
+    }
+  ],
+  "within": "http://dms-data.stanford.edu/Walters/",
+  "sequences": [
+    {
+      "@id": "http://dms-data.stanford.edu/Walters/bd183mz0176/normal",
+      "@type": "sc:Sequence",
+      "label": "Current page order",
+      "canvases": [
+        {
+          "@id": "http://dms-data.stanford.edu/Walters/zp295gk6974/canvas/canvas-1",
+          "@type": "sc:Canvas",
+          "label": "Upper board outside",
+          "height": 1780,
+          "width": 1463,
+          "resources": [
+            {
+              "@id": "http://dms-data.stanford.edu/Walters/zp295gk6974/imageanno/anno-1",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "http://stacks.stanford.edu/image/zp295gk6974/W5_000001_300",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1780,
+                "width": 1463,
+                "service": {
+                  "@id": "https://stacks.stanford.edu/image/iiif/zp295gk6974%252FW5_000001_300",
+                  "profile": "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1"
+                }
+              },
+              "on": "http://dms-data.stanford.edu/Walters/zp295gk6974/canvas/canvas-1"
+            }
+          ]
+        },
+      ]
+    }
+  ]
+}
