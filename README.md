@@ -75,7 +75,9 @@ To deploy IIP on a server, follow these instructions. Whenever this GIT account 
 First things first
 ------------------
 
-Edit Dockerfile curl commands to contain databank username and password when downloading kakadu library.
+If intending the docker CI server to download and compile kakadu, edit Dockerfile curl commands to contain databank username and password when downloading kakadu library. However, currently this will not work.
+
+For a full working instance of IIPSRV on your server, follow the buildout instructions below (which includes download and compiling of Kakadu).
 
 Create user "bodl-iip-svc"
 --------------------------
